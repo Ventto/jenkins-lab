@@ -1,23 +1,24 @@
 Run GUI tasks in Pipelines
 ==========================
 
-*"If you please--draw me a virtual frame buffer X11 server with each build!"*<br>
+*"If you please--draw me a personal X11 virtual frame buffer for each build!"*
 
-*"Need builds which require X11 access"*<br>
-*"Need jobs run tests that require GUI"*<br>
-*"Need a way to pick available X11 DISPLAY automatically, avoiding concurrent build issue"*<br>
-*"Need to run GUI tasks (ex: qemu) in my build's DISPLAY and keep them alive till the pipeline's end"*
+## Perks
 
-# Requirements
+- [x] Run jobs that require to run graphical process in background
+- [x] Create a X11 DISPLAY for a build
+- [x] Keep the process alive till as long as you wish
 
-## Jenkins Plugins
+## Requirements
+
+### Jenkins Plugins
 
 This is the list of plugin's shortnames:
 
 * *[workflow-aggregator](https://plugins.jenkins.io/workflow-aggregator)*
 * *[xvfb](https://plugins.jenkins.io/xvfb)*
 
-## Jenkinsfile
+### Jenkinsfile
 
 Importing this `Jenkinsfile` requires a [Pipeline Job](https://jenkins.io/doc/book/pipeline/getting-started/).
 It can be imported in two ways:
@@ -27,9 +28,9 @@ It can be imported in two ways:
 
 An example of `Jenkinsfile` is given [here](./Jenkinsfile).
 
-# Usage
+## Usage
 
-## Xvfb options
+### Xvfb options
 
 Due to a [lack of documentation](https://wiki.jenkins.io/display/JENKINS/Xvfb+Plugin), we must refer to the  [sources](https://github.com/jenkinsci/xvfb-plugin/blob/master/src/main/java/org/jenkinsci/plugins/xvfb/Xvfb.java#L387).
 
@@ -49,7 +50,7 @@ Due to a [lack of documentation](https://wiki.jenkins.io/display/JENKINS/Xvfb+Pl
 | assignedLabels | String | false | Run only on nodes labeled
 | parallelBuild | Boolean | false | Run on same node in parallel
 
-## Xvfb in pipelines
+### Xvfb in pipelines
 
 Add the wrapper's option as following:
 
